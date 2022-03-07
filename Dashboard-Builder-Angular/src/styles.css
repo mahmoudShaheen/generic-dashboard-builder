@@ -1,0 +1,51 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+    height:100%;
+    width:100%;
+    margin:0%;
+    padding:0%;
+    overflow-y: hidden !important;   
+}
+.active{
+    color: rgb(36, 36, 36) !important;
+}
+a:hover {
+    color: rgb(36, 36, 36) !important;
+}
+.circle{
+    min-width: 60px;
+    max-width:120px;
+    text-decoration: none;
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    border-style: none;
+    color: white;
+    border-radius: 100%;
+    overflow: none;
+    text-align: center;
+    padding:0;
+    box-shadow: 3px 5px 4px 5px #888888;
+}
+.circle:before {
+    content:'';
+    display:inline-block;;
+    vertical-align:middle;
+    padding-top:100%;
+}
+.circle:hover{
+    filter: brightness(0.9);
+}
+
+select {
+
+    background-color: white;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 60%;
+    cursor: inherit;
+    line-height: inherit;
+    
+}
+

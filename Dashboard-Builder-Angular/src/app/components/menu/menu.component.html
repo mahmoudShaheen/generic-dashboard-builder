@@ -1,0 +1,39 @@
+<header class="header-6" style="background-color: hsl(198, 100%, 32%); height: 2rem;">
+	<img src="/favicon.ico" style="padding: 7px; margin-left: 5px; filter: invert(1);">
+	<div style="margin-left: 5px; margin-top: 10px; font-weight: bold; font-size: large;">Shaheen Dashboard Builder</div>
+	
+	<div class="header-actions" style="margin-top: 10px; margin-right: 15px;">
+		<a>
+			<clr-icon shape="cog" size="20"></clr-icon>
+			<clr-icon shape="caret down" size="20"></clr-icon>
+		</a>
+	</div>
+</header>
+<div class="content-container">
+	<nav class="sidenav" *ngIf="toggle" style="position: relative !important; margin-top: 20px;">
+		<section class="sidenav-content">
+			<ul class="nav-list">
+				<a class="nav-link nav-icon"  
+				routerLinkActive="active"
+				*ngFor="let dashboard of dashboardCollection" routerLink="dashboard/{{dashboard.id}}"
+				style=" font-size: 15px; font-weight: bold;">
+				<clr-icon shape="link" size="35" ></clr-icon> 
+				<span style="margin-left: 10px;">{{ dashboard.name }}</span> 
+					<div style="float: right;">
+						<button class="btn btn-icon btn-danger" (click)="deleteDashboard(dashboard.id)">
+							<clr-icon shape="trash"></clr-icon>
+						</button>
+					</div>
+				</a>
+			  </ul>
+			  <button (click)="modal = !modal" type="button" class="btn btn-icon btn-primary" style="position: fixed; left: 3em; bottom: 1em; z-index: 10; box-shadow: 3px 5px 4px 5px #888888;">
+				<clr-icon shape="plus"  solid size="30"></clr-icon> Add New Dashboard
+			</button>
+		</section>
+	</nav>
+	<div  style="width: 100%; padding-bottom: 3rem;">
+		<!-- Display model on top of everything -->
+		<dashboard-modal [modal]="modal" (closeModal)="closeModal($event)"></dashboard-modal>
+		<router-outlet></router-outlet>
+	</div>
+</div>

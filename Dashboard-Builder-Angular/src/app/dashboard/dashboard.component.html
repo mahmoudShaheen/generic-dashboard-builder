@@ -1,0 +1,36 @@
+<app-widget-modal style="z-index: 200;" [modal]="modal" (closeModal)="closeModal($event)"></app-widget-modal>
+<app-edit-widget-modal *ngIf="editModal" style="z-index: 200;" [modal]="editModal" [model]="editWidget" (closeModal)="closeEditModal($event)"></app-edit-widget-modal>
+<!-- Gridster grid -->
+<gridster [options]="options" style="background: transparent;">
+	<!-- Earch grister-item is generated with *ngFor -->
+	<gridster-item [item]="item" *ngFor="let item of dashboard.canvas" style="border: 2px solid rgb(197, 197, 197);">
+	<div>
+		<div style="float: left; padding: 10px; font-weight: bold; font-size: large;">{{item.title}}</div>
+		<div style="float: right;">
+			<button class="btn btn-icon btn-info" style="margin-top: 10px;" (click)="editModel(item)">
+				<clr-icon shape="edit"></clr-icon>
+			</button>
+			<button class="btn btn-icon btn-danger" style="margin-left: 10px; margin-top: 10px;" (click)="removeWidget(item)">
+				<clr-icon shape="trash"></clr-icon>
+			</button>
+			<!-- Drag button (need drag-handler class) -->
+			<button class="btn btn-icon drag-handler" style="margin-left: 10px; margin-top: 10px;">
+				<clr-icon shape="drag-handle"></clr-icon>
+			</button>
+		</div>
+	</div>
+		<app-generic-chart class="no-drag"
+			[genericChartLink]="item.link"
+			[genericChartType]="item.type">
+		</app-generic-chart>
+	</gridster-item>
+</gridster>
+
+<div style="position: fixed; right: 1em; bottom: 1em; z-index: 10;">
+	<button type="button" (click)="reload()" class="btn-success circle" style="margin-right: 10px; background-color: #50b100;">
+		<clr-icon shape="refresh" solid size="30"></clr-icon>
+	</button>
+	<button type="button" (click)="modal = !modal" class="btn-primary circle" style="margin-right: 10px; background-color: #0072a3;">
+		<clr-icon shape="plus" solid size="30"></clr-icon>
+	</button>
+</div>

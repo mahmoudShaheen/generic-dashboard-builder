@@ -1,0 +1,33 @@
+<!-- We show modal if modal variable value is set to true -->
+<clr-modal [(clrModalOpen)]="modal">
+	<h3 class="modal-title">Edit Widget</h3>
+	<div class="modal-body">
+		<form [formGroup]="inputForm">
+			<!-- 
+				Some form input
+				TODO: Transform in Angular form
+			-->
+			<section class="form-block">
+				<div class="form-group">
+					<label class="required">Title</label>
+					<input type="text" id="title" required formControlName="title">
+				</div>
+				<div class="form-group">
+					<label class="required">Link</label>
+					<input type="text" id="link" required formControlName="link">
+				</div>
+				<div class="form-group">
+					<label class="required">Chart Type</label>
+					<select class="clrSelect" formControlName="type" id="type" required>
+                        <option *ngFor="let type of chartTypes" [value]="type">{{type}}</option>
+                    </select>
+				</div>
+			</section>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<!-- Call toggle function that emit an event to Parent component -->
+		<!-- <button type="button" class="btn btn-outline" (click)="toggle()">Cancel</button> -->
+		<button type="button" class="btn btn-primary" (click)="toggle()" [disabled]="!inputForm.valid">Edit</button>
+	</div>
+</clr-modal>

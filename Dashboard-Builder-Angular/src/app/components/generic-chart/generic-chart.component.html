@@ -1,0 +1,9 @@
+<div style="display: block;" *ngIf="chartReady">
+    <canvas baseChart 
+                [datasets]="genericChartData"
+                [labels]="genericChartLabels"
+                [options]="genericChartOptions"
+                [legend]="genericChartLegend"
+                [chartType]="genericChartType"
+                ></canvas>
+</div>

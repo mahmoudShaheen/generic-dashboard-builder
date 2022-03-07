@@ -1,0 +1,23 @@
+<!-- We show modal if modal variable value is set to true -->
+<clr-modal [(clrModalOpen)]="modal">
+	<h3 class="modal-title">Add New Dashboard</h3>
+	<div class="modal-body">
+		<form [formGroup]="inputForm">
+			<!-- 
+				Some form input
+				TODO: Transform in Angular form
+			-->
+			<section class="form-block">
+				<div class="form-group">
+					<label class="required">Name</label>
+					<input type="text" id="name" required formControlName="name">
+				</div>
+			</section>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<!-- Call toggle function that emit an event to Parent component -->
+		<!-- <button type="button" class="btn btn-outline" (click)="toggle()">Cancel</button> -->
+		<button type="button" class="btn btn-primary" (click)="toggle()" [disabled]="!inputForm.valid">Add</button>
+	</div>
+</clr-modal>
