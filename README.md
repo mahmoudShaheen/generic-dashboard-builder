@@ -2,8 +2,9 @@
 
 ## Start ASP Core Project
 - Start by applying db migration through PM
+- `PM> Add-Migration initial-migration`
 - `PM> Update-Database`
-- Run the project: http://localhost:8080/
+- Run the project: `http://localhost:8080/`
 
 ## Start Angular
 - Install dependencies first by running `npm i`
